@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    img {
+      position: absolute;
+    }
+
+    .one {
+      width: 30px;
+      height: 3000px;
+      background: red;
+      border: 1px solid blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="one"></div>
+  <img src="../图片/04 - 源代码/images/tianshi.gif" alt="">
+</body>
+<script>
+  let img = document.querySelector('img');
+  document.onmousemove = function (e) {
+    let X = e.pageX;
+    let Y = e.pageY;
+    img.style.top = Y + 'px';
+    img.style.left = X + 'px';
+  }
+
+</script>
+
+</html>

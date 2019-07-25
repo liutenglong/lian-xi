@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+  <body id='aa'>
+<!-- 设置两个按钮,并且给他们赋予各自的id值 -->
+    <input type="button" value="点我,打开" id='open' >
+    <input type="button" value="点我,关闭" id='colse' >
+</body>
+
+<script>
+  // 获取来到两个按钮
+var colse= document.querySelector('#colse');
+var open= document.querySelector('#open');
+
+//注册按钮
+  colse.onclick=function(){
+    document.querySelector('#aa').style.backgroundColor='#00a4ff';
+  }
+
+  //注册按钮
+  open.onclick=function(){
+   document.querySelector('#aa').style.backgroundColor='#ccc';
+   }
+
+/*var btn = document.getElementById('btn');
+btn.onclick = function(){
+  if(btn.value==='关灯'){
+    document.body.style.backgroundColor='#a7d552';
+    btn.value = '开灯';
+  }else{
+    document.body.style.backgroundColor = '#333';
+    
+    btn.value = '关灯';
+  }
+}
+*/
+</script>
+</html>

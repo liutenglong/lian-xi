@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+
+//先两数相加,再和第三个数字相加
+function f1(a,b){
+  return a+b;
+}
+
+function f2(a,b,c){
+  var sum=a+b;
+  sum=f1(sum,c);
+  return sum;
+}
+console.log(f2(10,20,30));
+
+
+
+//这些代码是什么样的运行顺序?  用断点演示一下
+
+
+/*
+函数与函数之间的嵌套
+需求:  1-100的整数求和*/
+
+// function getSum(n){
+//   var sum=0;
+//   for(var i=1; i<=n; i++){
+//     sum+=i;
+//   }
+//   return sum;
+// }
+//   console.log(getSum(100));
+
+
+
+
+
+
+</script>
+</html>

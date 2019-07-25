@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <input type="button" value="颜色" id='aa'> -->
+</body>
+<script>
+// console.log(Math.sin(90deg));
+// 正弦函数,余弦函数,正切函数.
+// var body = document.body;
+// console.log(body);
+
+function renyi(n,m){
+  return Math.floor(Math.random()*(m-n+1)+n);
+}
+
+function color(){
+  var R=renyi(0,255);
+  var G=renyi(0,255);
+  var B=renyi(0,255);
+return 'RGB('+R+','+G+','+B+')';
+}
+
+console.log(color());
+
+
+// var bb =document.getElementById('aa');
+// bb.onclick=function(){
+//   document.body.style.backgroundColor=color();
+// };
+// console.log(bb);
+
+window.setInterval(function(){
+  document.body.style.backgroundColor=color();
+} ,100);
+</script>
+</html>

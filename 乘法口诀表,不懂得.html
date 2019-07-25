@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  //假设j为行,i为列.
+for(var i=0; i<10; i++){
+  for(var j=1; j<=i; j++){
+    //这个三元表达式的代码,到底是什么意思?
+    document.write(j+'×'+i+'='+(i*j<10? "&nbsp;&nbsp;"+i*j:i*j)+"&nbsp;&nbsp;&nbsp;&nbsp;") 
+  }
+  document.write('<br/>');
+}
+</script>
+</html>

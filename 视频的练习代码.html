@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  
+</body>
+<script>
+  //为什么会是这样的输出结果
+function f1(a,fn){
+  console.log(a);
+}
+function f2(){
+  console.log('这里是f2里面的代码');
+}
+f1('abc');
+f2();
+
+
+//下面的代码什么意思?
+
+function f1(a,fn){
+  console.log(a);
+  fn && fn();  /*这句代码什么意思?*/
+}
+function f2(){
+  console.log('f2');
+}
+f1('abc');
+</script>
+</html>
+

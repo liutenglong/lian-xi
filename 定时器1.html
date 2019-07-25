@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>定时器</title>
+  <style>
+    .form {
+      width: 600px;
+      margin: 100px auto;
+    }
+
+    .row {
+      width: 100%;
+      display: flex;
+      border-top: 1px solid #0094ff;
+      border-bottom: 1px solid #0094ff;
+    }
+
+    .cols-1 {
+      flex: 1;
+    }
+
+    .cols-2 {
+      flex: 2;
+    }
+
+    .cell {
+      border-left: 1px solid #0094ff;
+      padding: 10px 6px;
+      line-height: 42px;
+      text-align: center;
+    }
+
+    .cell:last-child {
+      border-right: 1px solid #0094ff;
+    }
+
+    .text {
+      width: 268px;
+      height: 30px;
+      padding: 4px;
+    }
+
+    .btn {
+      height: 38px;
+      width: 104px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form">
+    <div class="row">
+      <div class="cell cols-1">请输入手机号码</div>
+      <div class="cell cols-2">
+        <input type="text" class="text">
+      </div>
+      <div class="cell cols-1">
+        <input type="button" class="btn" value="获取验证码" id="getCode">
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  //获取按钮
+  let btn = document.querySelector('#getCode');
+  //注册点击事件
+  btn.onclick = function () {
+  //先声明倒计时的时间总数
+  let count = 5;
+    //先把按钮的文字进行进一步的修改
+    btn.value = '获取验证码(' + count + 's)'; 
+  //设置按钮禁用
+  btn.disabled = true;
+  //开启定时器,开始倒数计时
+  let timerId = setInterval(function () {
+    //倒数计时的时候把时间减少
+    count = count - 1;
+    //把按钮的文字,实现倒计时的效果
+    btn.value = '获取验证码(' + count + 's)';
+    //如果倒计时到0了,应该停止倒计时了
+    if (count <= 0) {
+      clearInterval(timeId);
+      //当倒计时结束时,让按钮的文字回复原状
+      btn.value = '获取验证码';
+      //把按钮重新启用
+      btn.disabled = false;
+    }
+  }, 1000);
+  }
+
+</script>
+
+</html>

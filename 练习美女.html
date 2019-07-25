@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+
+  .haha{
+    width: 600px;
+  }
+  img{
+    width: 100%;
+  }
+  
+  </style>
+</head>
+<body>
+  <div class="haha">
+    <!-- 设置五个按钮, -->
+  <input type="button" value="按钮1" data-src="../图片/images/01.png">
+  <input type="button" value="按钮2" data-src="../图片/images/02.png">
+  <input type="button" value="按钮3" data-src="../图片/images/03.gif">
+  <input type="button" value="按钮4" data-src="../图片/images/04.gif">
+  <input type="button" value="按钮5".data-src="../图片/images/05.gif">
+  <!-- 设置默认的图片 -->
+  <img src="../图片/images/01.png" alt="">
+</div>
+</body>
+<script>
+  // 分别获取两个标签元素
+var btn = document.getElementsByTagName('input');
+var img = document.getElementsByTagName('img');
+//给每个btn分别注册一个事件
+for (var i=0; i<btn.length; i++){
+btn[i].onclick=function(){    //让每个事件的点击,变成一个函数
+  img[0].src=this.dataset.src;  //this,指定事件源
+}
+}
+
+</script>
+</html>

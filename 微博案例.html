@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+  
+      .weibo {
+        width: 600px;
+        border: 1px solid #ccc;
+  
+        margin: 100px auto;
+        padding: 10px;
+  
+      }
+  
+      .weibo-text {
+        width: 590px;
+        height: 140px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        outline: none;
+        resize: none;
+      }
+  
+      .weibo-text:focus {
+        border-color: #f60;
+      }
+  
+      .weibo-btn {
+        width: 80px;
+        height: 30px;
+        background-color: #f90;
+        color: #fff;
+        border: 0 none;
+        margin-top: 5px;
+        border-radius: 3px;
+        cursor: pointer;
+        outline: 0 none;
+      }
+  
+      .weibo-list {
+        padding-top: 10px;
+      }
+  
+      .weibo-list li {
+        font-size: 14px;
+        line-height: 30px;
+        border-bottom: 1px dotted #ccc;
+        overflow: hidden;
+      }
+  
+      .weibo-list li p {
+        float: left;
+      }
+  
+      .weibo-list li span {
+        float: right;
+        cursor: pointer;
+      }
+  
+      .weibo-list li input {
+        height: 24px;
+        line-height: 24px;
+        width: 300px;
+        font-size: 14px;
+        border: 0 none;
+      }
+    </style>
+</head>
+<body>
+    <div class="weibo">
+      <textarea class="weibo-text"></textarea>
+      <input class="weibo-btn" value="发布" type="button">
+      <ul class="weibo-list">
+        <li>
+          <p>快来收了这九款用上就停不下来的应用吧！！</p>
+          <span>删除</span>
+        </li>
+        <li>
+          <p>超级详细的云南大理自助游攻略</p>
+          <span>删除</span>
+        </li>
+        <li>
+          <p>外国最近很火的舞蹈，舒服简单自然，太棒了！</p>
+          <span>删除</span>
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+  //获取三个元素
+ let btn = document.querySelector('.weibo-btn');
+ let text = document.querySelector('.weibo-text');
+ let list = document.querySelector('.weibo-list');
+//注册事件
+btn.onclick=function(){
+  //获取文本域的内容
+  let tt=text.value;
+  //创建一个新的li标签
+  let li = document.createElement('li');
+  //把文本域的内容作为li的新内容
+li.innerHTML = '<p>'+text.value+'</p><span>删除</span>';
+//让创建好的li,添加到结构中去
+// list.appendChild(li);
+//想要的效果是把新添加的元素放在第一行,所以不能写上面的代码,只能用下面的代码
+list.insertBefore(li,list.children[0]);
+//清空文本域中的内容
+text.value='';
+}
+
+//对删除按钮用事件委托的方法来实现
+
+//把时间注册在一个已经存在的前代元素上面,即把它注册在ul的身上
+list.addEventListener('click',function(e){
+  //判断点击的是否是span
+  if(e.target.nodeName==='SPAN'){
+    //如果满足条件,就把span对应的li删除
+    let li = e.target.parentNode;
+    list.removeChild(li);
+  }
+});
+//事件按键发布
+//给文本域注册键盘事件
+text.onkeydown = function(e){
+  //判断是否同时按下ctrl以及回车键
+  // console.log(e);
+//如果按下ctrl,事件对象的一个属性 事件对象.ctrlKey 就是true
+if(e.ctrlKey && e.keyCode===3){
+  //发布微博
+  btn.onclick();
+  //直接使用代码触发点击事件
+}
+}
+  </script>
+</html>
+
+
